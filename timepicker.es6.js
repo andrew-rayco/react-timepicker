@@ -11,7 +11,7 @@ export class Timepicker extends React.Component {
         this.onChangeMode = this.onChangeMode.bind(this)
     }
 
-    componentDidUpdate({ hours, minutes, mode }) {
+    UNSAFE_componentWillReceiveProps({ hours, minutes, mode }) {
         const diff = {}
         const props = this.props
 
@@ -161,7 +161,14 @@ export class Clock extends React.Component {
         this.onHand2 = this.onHand2.bind(this)
     }
 
-    componentDidUpdate({ hours, militaryTime, minutes, mode, radius, size }) {
+    UNSAFE_componentWillReceiveProps({
+        hours,
+        militaryTime,
+        minutes,
+        mode,
+        radius,
+        size
+    }) {
         const props = this.props
 
         if (size !== props.size || radius !== props.radius) {
